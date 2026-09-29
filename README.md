@@ -41,3 +41,17 @@ bash scripts/eval_hs.sh
 ## Acknowledgements
 
 Built on [verl](https://github.com/verl-project/verl), with components from [GD²PO](https://github.com/Qwen-Applications/GD2PO), [GDPO](https://github.com/NVlabs/GDPO), and [Math-Verify](https://github.com/huggingface/Math-Verify). See [third-party notices](THIRD_PARTY_NOTICES.md).
+
+## Citation
+
+```bibtex
+@misc{fang2026orpgreconcilingmultiplereward,
+      title={ORPG: Reconciling Multiple Reward Objectives through Objective-wise Policy Gradients},
+      author={Shicheng Fang and Yiwen Zhao and Wenbo Tian and Jiahao Lu and Yining Zheng and Yuxin Wang and Xipeng Qiu},
+      year={2026},
+      eprint={2609.34985},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2609.34985},
+}
+```

@@ -9,6 +9,6 @@ python scripts/evaluate_helpfulness_safety.py run-pipeline \
   --useful-model models/Qwen2.5-7B-SafeRLHF-RM \
   --harmless-model models/Qwen2.5-7B-SafeRLHF-CM \
   --data-root data/helpfulness_safety \
-  --calibration-manifest outputs/calibration/hs-qwen3-base-s42-p512-n4-v3/calibration_manifest.json \
+  --calibration-manifest outputs/calibration/calibration_manifest.json \
   --compatibility-summary outputs/compatibility.json \
   --output-dir outputs/orpg-hs-eval "$@"

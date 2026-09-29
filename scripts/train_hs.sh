@@ -9,4 +9,4 @@ python scripts/train.py --scenario hs --run-name orpg-hs \
   --valid-data data/helpfulness_safety/calibration/calibration_512.parquet \
   --useful-model models/Qwen2.5-7B-SafeRLHF-RM \
   --harmless-model models/Qwen2.5-7B-SafeRLHF-CM \
-  --calibration outputs/calibration/hs-qwen3-base-s42-p512-n4-v3/calibration_manifest.json "$@"
+  --calibration outputs/calibration/calibration_manifest.json "$@"

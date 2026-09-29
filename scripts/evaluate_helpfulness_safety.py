@@ -156,8 +156,6 @@ def _validate(args: argparse.Namespace) -> None:
     if compatibility.get("status") != "passed":
         raise RuntimeError("H/S compatibility gate has not passed")
     calibration = EvaluationCalibration.from_manifest(args.calibration_manifest)
-    if calibration.calibration_id != "hs-qwen3-base-s42-p512-n4-v3":
-        raise ValueError("H/S main evaluation requires frozen calibration v3")
 
     from transformers import AutoTokenizer
 

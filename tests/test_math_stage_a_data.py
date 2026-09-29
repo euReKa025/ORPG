@@ -1,4 +1,4 @@
-from cw_grpo.math_stage_a_data import prepare_stage_a_records, prompt_id
+from orpg.math_stage_a_data import prepare_stage_a_records, prompt_id
 
 
 def test_prepare_stage_a_records_excludes_invalid_and_all_dev_duplicates() -> None:

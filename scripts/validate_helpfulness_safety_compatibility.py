@@ -14,7 +14,7 @@ from typing import Any
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from cw_grpo.helpfulness_safety_scoring import (
+from orpg.helpfulness_safety_scoring import (
     CWQwen2RewardModel,
     format_reward_conversation,
     load_reward_tokenizer,
@@ -247,7 +247,7 @@ def _official_classes(reference_root: Path) -> tuple[type[Any], type[Any]]:
         reference_root
         / "safe-alignment/verl/workers/align_anything/configs/format_model.py"
     )
-    package_name = "cw_grpo_gd2po_official"
+    package_name = "orpg_gd2po_official"
     package = types.ModuleType(package_name)
     package.__path__ = [str(model_dir)]
     sys.modules[package_name] = package

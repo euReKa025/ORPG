@@ -1,5 +1,5 @@
 import pytest
-from cw_grpo.stage_a_budget_views import materialize_budget_rows
+from orpg.stage_a_budget_views import materialize_budget_rows
 
 def _generation_rows() -> list[dict[str, object]]:
     return [

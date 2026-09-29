@@ -7,12 +7,12 @@ import torch
 from verl import DataProto
 from verl.experimental.reward_loop.reward_manager.base import RewardManagerBase
 
-from cw_grpo.helpfulness_safety_service import (
+from orpg.helpfulness_safety_service import (
     AsyncRewardBatcher,
     DualRewardScorer,
     append_assistant_response,
 )
-from cw_grpo.helpfulness_safety_training import (
+from orpg.helpfulness_safety_training import (
     HelpfulnessSafetyCalibration,
     build_helpfulness_safety_reward,
 )

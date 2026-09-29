@@ -13,8 +13,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
-from cw_grpo.helpfulness_safety_dataset import left_truncate_chat_messages
-from cw_grpo.helpfulness_safety_evaluation import (
+from orpg.helpfulness_safety_dataset import left_truncate_chat_messages
+from orpg.helpfulness_safety_evaluation import (
     EVALUATION_DATASETS,
     EvaluationCalibration,
     assign_shard,
@@ -359,7 +359,7 @@ def _score_shard(args: argparse.Namespace) -> None:
 
     import torch
 
-    from cw_grpo.helpfulness_safety_service import (
+    from orpg.helpfulness_safety_service import (
         DualRewardScorer,
         append_assistant_response,
     )

@@ -8,7 +8,7 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 import pytest
 
-from cw_grpo.stage_a_eval_scoring import score_generation_rows
+from orpg.stage_a_eval_scoring import score_generation_rows
 
 
 def test_score_generation_rows_uses_exact_token_ids_and_shared_verifier() -> None:
@@ -110,7 +110,7 @@ def test_stage_a_eval_scoring_cli_uses_real_rule_verifier(tmp_path: Path) -> Non
             "2",
         ],
         cwd=project_root,
-        env={**os.environ, "CW_GRPO_RELOCATED_OUTPUT_ROOT": str(tmp_path), "CW_GRPO_ROOT": str(tmp_path)},
+        env={**os.environ, "ORPG_RELOCATED_OUTPUT_ROOT": str(tmp_path), "ORPG_ROOT": str(tmp_path)},
         capture_output=True,
         text=True,
         check=False,

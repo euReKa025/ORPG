@@ -4,10 +4,10 @@ import random
 import pytest
 import torch
 
-from cw_grpo.gradient_reconciliation import (
+from orpg.gradient_reconciliation import (
     GradientCollection, pcgrad_reconcile, correctness_priority_pcgrad_reconcile,
 )
-from cw_grpo.positive_gradient_reconciliation import (
+from orpg.positive_gradient_reconciliation import (
     positive_direction_weights, positive_pcgrad_reconcile,
 )
 

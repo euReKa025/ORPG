@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import torch
 
-from cw_grpo.gradient_reconciliation import (
+from orpg.gradient_reconciliation import (
     GradientCollection,
     cagrad_reconcile,
     correctness_priority_pcgrad_reconcile,

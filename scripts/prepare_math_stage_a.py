@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pyarrow.parquet as pq
 
-from cw_grpo.math_stage_a_data import (
+from orpg.math_stage_a_data import (
     DATA_SOURCE,
     prepare_stage_a_records,
     prompt_id,

@@ -1,8 +1,8 @@
 import torch
 
-from cw_grpo.objectives import (
+from orpg.objectives import (
     build_advantage_bundle,
-    cw_grpo_policy_loss,
+    orpg_policy_loss,
     gdpo_policy_loss,
 )
 
@@ -55,16 +55,16 @@ def test_zero_variance_component_becomes_zero() -> None:
     assert bool(bundle.valid_component_mask[..., 1].all())
 
 
-def test_no_clipping_gdpo_equals_cw_with_mixed_signs() -> None:
+def test_no_clipping_gdpo_equals_orpg_with_mixed_signs() -> None:
     component_adv = torch.tensor([[[1.0, -0.8]]])
     old_log_probs = torch.zeros(1, 1, 1)
     current_log_probs = torch.log(torch.tensor([[[1.05]]]))
     mask = _mask()
 
     gdpo = gdpo_policy_loss(current_log_probs, old_log_probs, mask, component_adv)
-    cw = cw_grpo_policy_loss(current_log_probs, old_log_probs, mask, component_adv)
+    orpg = orpg_policy_loss(current_log_probs, old_log_probs, mask, component_adv)
 
-    assert torch.allclose(gdpo, cw, atol=1e-7, rtol=1e-7)
+    assert torch.allclose(gdpo, orpg, atol=1e-7, rtol=1e-7)
 
 
 def test_same_sign_advantages_equal_even_when_clipped() -> None:
@@ -74,9 +74,9 @@ def test_same_sign_advantages_equal_even_when_clipped() -> None:
     mask = _mask()
 
     gdpo = gdpo_policy_loss(current_log_probs, old_log_probs, mask, component_adv)
-    cw = cw_grpo_policy_loss(current_log_probs, old_log_probs, mask, component_adv)
+    orpg = orpg_policy_loss(current_log_probs, old_log_probs, mask, component_adv)
 
-    assert torch.allclose(gdpo, cw, atol=1e-7, rtol=1e-7)
+    assert torch.allclose(gdpo, orpg, atol=1e-7, rtol=1e-7)
 
 
 def test_mixed_sign_advantages_differ_when_clipped() -> None:
@@ -86,10 +86,10 @@ def test_mixed_sign_advantages_differ_when_clipped() -> None:
     mask = _mask()
 
     gdpo = gdpo_policy_loss(current_log_probs, old_log_probs, mask, component_adv)
-    cw = cw_grpo_policy_loss(current_log_probs, old_log_probs, mask, component_adv)
+    orpg = orpg_policy_loss(current_log_probs, old_log_probs, mask, component_adv)
 
-    assert not torch.allclose(gdpo, cw)
-    assert cw > gdpo
+    assert not torch.allclose(gdpo, orpg)
+    assert orpg > gdpo
 
 
 def test_gradients_equal_without_clipping() -> None:
@@ -101,9 +101,9 @@ def test_gradients_equal_without_clipping() -> None:
     old = torch.zeros_like(x1)
 
     loss_gdpo = gdpo_policy_loss(x1, old, mask, component_adv)
-    loss_cw = cw_grpo_policy_loss(x2, old, mask, component_adv)
+    loss_orpg = orpg_policy_loss(x2, old, mask, component_adv)
 
     loss_gdpo.backward()
-    loss_cw.backward()
+    loss_orpg.backward()
 
     assert torch.allclose(x1.grad, x2.grad, atol=1e-7, rtol=1e-7)

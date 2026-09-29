@@ -11,7 +11,7 @@ from typing import Any
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from cw_grpo.math_stage_a_data import MATH_PROMPT_SUFFIX, prompt_id
+from orpg.math_stage_a_data import MATH_PROMPT_SUFFIX, prompt_id
 
 
 @dataclass(frozen=True, slots=True)

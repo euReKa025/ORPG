@@ -9,14 +9,14 @@ from pathlib import Path
 
 import pyarrow.parquet as pq
 
-from cw_grpo.math_stage_a_eval_data import (
+from orpg.math_stage_a_eval_data import (
     BenchmarkSource,
     PreparedBenchmarkRecords,
     prepare_benchmark_records,
     write_benchmark_artifacts,
 )
-from cw_grpo.math_stage_a_reward import parse_stage_a_ground_truth
-from cw_grpo.stage_a_grpo import REMOTE_PROJECT_ROOT
+from orpg.math_stage_a_reward import parse_stage_a_ground_truth
+from orpg.stage_a_grpo import REMOTE_PROJECT_ROOT
 
 PROJECT_ROOT = Path(str(REMOTE_PROJECT_ROOT))
 RAW_ROOT = PROJECT_ROOT / "data/math/raw"

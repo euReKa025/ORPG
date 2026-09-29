@@ -183,7 +183,7 @@ def gdpo_policy_loss(
     )
 
 
-def cw_grpo_policy_loss(
+def orpg_policy_loss(
     current_log_probs: Tensor,
     old_log_probs: Tensor,
     response_mask: Tensor,

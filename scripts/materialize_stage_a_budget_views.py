@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import pyarrow as pa
 import pyarrow.parquet as pq
-from cw_grpo.stage_a_budget_views import materialize_budget_rows
+from orpg.stage_a_budget_views import materialize_budget_rows
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)

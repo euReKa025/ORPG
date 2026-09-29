@@ -8,7 +8,7 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Any
 
-from cw_grpo.policy_snapshot import inspect_policy_snapshot
+from orpg.policy_snapshot import inspect_policy_snapshot
 
 
 @dataclass(frozen=True, slots=True)
@@ -42,7 +42,7 @@ def _sha256_path(path: Path) -> str:
 
 
 def _record_sha256() -> bool:
-    return os.environ.get("CW_GRPO_RECORD_SHA256", "0").lower() not in {
+    return os.environ.get("ORPG_RECORD_SHA256", "0").lower() not in {
         "0",
         "false",
         "no",

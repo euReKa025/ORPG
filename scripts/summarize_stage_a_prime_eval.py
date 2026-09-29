@@ -8,8 +8,8 @@ import json
 import os
 from pathlib import Path
 
-from cw_grpo.stage_a_eval_summary import summarize_budget_metric_payloads
-from cw_grpo.stage_a_grpo import REMOTE_PROJECT_ROOT
+from orpg.stage_a_eval_summary import summarize_budget_metric_payloads
+from orpg.stage_a_grpo import REMOTE_PROJECT_ROOT
 
 PROJECT_ROOT = Path(str(REMOTE_PROJECT_ROOT)).resolve()
 STAGE_A_PRIME_BUDGETS = (2048, 4096, 8192)
@@ -20,7 +20,7 @@ def _path(raw_path: Path, label: str) -> Path:
     path = raw_path.resolve()
     if path.is_relative_to(PROJECT_ROOT):
         return path
-    relocated_output_root = os.environ.get("CW_GRPO_RELOCATED_OUTPUT_ROOT")
+    relocated_output_root = os.environ.get("ORPG_RELOCATED_OUTPUT_ROOT")
     if relocated_output_root:
         allowed_root = Path(relocated_output_root).expanduser().resolve()
         if path.is_relative_to(allowed_root):

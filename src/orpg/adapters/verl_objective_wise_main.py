@@ -3,20 +3,18 @@ from __future__ import annotations
 from verl.trainer import main_ppo
 from verl.trainer.main_ppo import TaskRunner as VerlTaskRunner
 
-from cw_grpo.adapters.verl_helpfulness_safety_runtime import (
-    HelpfulnessSafetyObjectiveWiseTaskRunner,
-)
+from orpg.adapters.verl_objective_wise_runtime import ObjectiveWiseTaskRunner
 
 
-def install_task_runner() -> None:
+def install_objective_wise_task_runner() -> None:
     current = main_ppo.TaskRunner
-    if current not in {VerlTaskRunner, HelpfulnessSafetyObjectiveWiseTaskRunner}:
+    if current not in {VerlTaskRunner, ObjectiveWiseTaskRunner}:
         raise RuntimeError("refusing to replace an unexpected Verl TaskRunner")
-    main_ppo.TaskRunner = HelpfulnessSafetyObjectiveWiseTaskRunner
+    main_ppo.TaskRunner = ObjectiveWiseTaskRunner
 
 
 def main() -> None:
-    install_task_runner()
+    install_objective_wise_task_runner()
     main_ppo.main()
 
 

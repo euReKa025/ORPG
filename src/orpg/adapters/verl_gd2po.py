@@ -128,7 +128,7 @@ def install_gd2po_hard_overlay() -> None:
     current_metrics = ray_trainer.compute_data_metrics
     if current_estimator is compute_gd2po_hard_outcome_advantage and getattr(
         current_metrics,
-        "_cw_grpo_gd2po_hard",
+        "_orpg_gd2po_hard",
         False,
     ):
         return
@@ -146,7 +146,7 @@ def install_gd2po_hard_overlay() -> None:
         metrics.update(gd2po_hard_metrics(batch.non_tensor_batch))
         return metrics
 
-    compute_data_metrics_with_gd2po_hard._cw_grpo_gd2po_hard = True  # type: ignore[attr-defined]
+    compute_data_metrics_with_gd2po_hard._orpg_gd2po_hard = True  # type: ignore[attr-defined]
     core_algos.ADV_ESTIMATOR_REGISTRY["gdpo"] = (
         compute_gd2po_hard_outcome_advantage
     )

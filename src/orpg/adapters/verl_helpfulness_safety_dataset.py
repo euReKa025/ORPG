@@ -4,7 +4,7 @@ from typing import Any
 
 from verl.utils.dataset.rl_dataset import RLHFDataset
 
-from cw_grpo.helpfulness_safety_dataset import left_truncate_chat_messages
+from orpg.helpfulness_safety_dataset import left_truncate_chat_messages
 
 
 class LeftTruncatingHelpfulnessSafetyDataset(RLHFDataset):

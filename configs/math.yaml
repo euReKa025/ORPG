@@ -1,4 +1,4 @@
-entrypoint: cw_grpo.adapters.verl_objective_wise_main
+entrypoint: orpg.adapters.verl_objective_wise_main
 overrides:
 - data.train_files=${TRAIN_DATA}
 - data.val_files=${VALID_DATA}
@@ -69,7 +69,7 @@ overrides:
 - actor_rollout_ref.ref.fsdp_config.param_offload=false
 - reward.reward_manager.source=importlib
 - reward.reward_manager.name=MathStageARewardManager
-- reward.reward_manager.module.path=${CODE_ROOT}/src/cw_grpo/adapters/verl_math_reward.py
+- reward.reward_manager.module.path=${CODE_ROOT}/src/orpg/adapters/verl_math_reward.py
 - reward.reward_manager.module.name=MathStageARewardManager
 - +reward.stage_a_length_threshold=4000
 - trainer.balance_batch=true

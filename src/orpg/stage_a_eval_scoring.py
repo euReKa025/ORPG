@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from typing import Any
 
-from cw_grpo.math_stage_a_reward import score_stage_a_response
+from orpg.math_stage_a_reward import score_stage_a_response
 
 ScoreFunction = Callable[..., Mapping[str, float | int]]
 

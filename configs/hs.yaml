@@ -1,4 +1,4 @@
-entrypoint: cw_grpo.adapters.verl_helpfulness_safety_objective_wise_main
+entrypoint: orpg.adapters.verl_helpfulness_safety_objective_wise_main
 overrides:
 - data.train_files=${TRAIN_DATA}
 - data.val_files=${VALID_DATA}
@@ -9,7 +9,7 @@ overrides:
 - data.filter_overlong_prompts=false
 - data.truncation=left
 - data.return_raw_chat=true
-- data.custom_cls.path=${CODE_ROOT}/src/cw_grpo/adapters/verl_helpfulness_safety_dataset.py
+- data.custom_cls.path=${CODE_ROOT}/src/orpg/adapters/verl_helpfulness_safety_dataset.py
 - data.custom_cls.name=LeftTruncatingHelpfulnessSafetyDataset
 - data.shuffle=true
 - data.seed=42
@@ -67,7 +67,7 @@ overrides:
 - actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=8192
 - reward.reward_manager.source=importlib
 - reward.reward_manager.name=HelpfulnessSafetyRewardManager
-- reward.reward_manager.module.path=${CODE_ROOT}/src/cw_grpo/adapters/verl_helpfulness_safety_reward.py
+- reward.reward_manager.module.path=${CODE_ROOT}/src/orpg/adapters/verl_helpfulness_safety_reward.py
 - reward.reward_manager.module.name=HelpfulnessSafetyRewardManager
 - reward.num_workers=4
 - reward.reward_model.enable=false

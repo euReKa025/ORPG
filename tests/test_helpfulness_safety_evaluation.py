@@ -5,11 +5,11 @@ from pathlib import Path
 
 import pytest
 
-from cw_grpo.helpfulness_safety_dataset import (
+from orpg.helpfulness_safety_dataset import (
     chat_prompt_token_ids,
     left_truncate_chat_messages,
 )
-from cw_grpo.helpfulness_safety_evaluation import (
+from orpg.helpfulness_safety_evaluation import (
     EVALUATION_DATASETS,
     EvaluationCalibration,
     assign_shard,

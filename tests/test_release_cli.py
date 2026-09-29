@@ -36,7 +36,7 @@ def test_eval_seed_sample_std_and_invalid_inputs():
     with pytest.raises(ValueError):agg([(42,{'x':1}),(43,{'x':float('nan')})],['x'])
 
 def test_training_data_artifacts_are_written_without_content_checksums(tmp_path):
-    from cw_grpo.math_stage_a_data import prepare_stage_a_records,write_stage_a_artifacts
+    from orpg.math_stage_a_data import prepare_stage_a_records,write_stage_a_artifacts
     rows=[{'problem':f'Compute {i}+1.','answer':str(i+1)} for i in range(4)]
     prepared=prepare_stage_a_records(rows,tuning_dev_size=1,excluded_prompt_ids=())
     manifest=write_stage_a_artifacts(prepared,tmp_path,provenance={'source_revision':'fixture'})

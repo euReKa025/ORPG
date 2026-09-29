@@ -10,7 +10,7 @@ import math
 
 import torch
 
-from cw_grpo.gradient_reconciliation import (
+from orpg.gradient_reconciliation import (
     GradientCollection, ReconciliationDiagnostics, ScalarReducer,
     _diagnostics, _dot, _identity, _sum,
     correctness_priority_pcgrad_reconcile, pcgrad_reconcile,

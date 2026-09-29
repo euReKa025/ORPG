@@ -14,7 +14,7 @@ from typing import Any
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from cw_grpo.stage_a_eval_generation import (
+from orpg.stage_a_eval_generation import (
     EvalRequest,
     build_chat_completion_payload,
     build_eval_request_plan,
@@ -22,7 +22,7 @@ from cw_grpo.stage_a_eval_generation import (
     mark_evaluation_manifest,
     resolve_eval_model_path,
 )
-from cw_grpo.stage_a_grpo import MODEL_PATH, REMOTE_PROJECT_ROOT
+from orpg.stage_a_grpo import MODEL_PATH, REMOTE_PROJECT_ROOT
 
 PROJECT_ROOT = Path(
     os.environ.get("ORPG_ROOT", str(REMOTE_PROJECT_ROOT))
@@ -41,7 +41,7 @@ def _sha256(path: Path) -> str:
 
 
 def _record_sha256() -> bool:
-    return os.environ.get("CW_GRPO_RECORD_SHA256", "0").lower() not in {
+    return os.environ.get("ORPG_RECORD_SHA256", "0").lower() not in {
         "0",
         "false",
         "no",
@@ -53,8 +53,8 @@ def _personal_path(path: Path, *, label: str) -> Path:
     if resolved.is_relative_to(PROJECT_ROOT):
         return resolved
     for env_name in (
-        "CW_GRPO_RELOCATED_DATA_ROOT",
-        "CW_GRPO_RELOCATED_OUTPUT_ROOT",
+        "ORPG_RELOCATED_DATA_ROOT",
+        "ORPG_RELOCATED_OUTPUT_ROOT",
     ):
         relocated_root = os.environ.get(env_name)
         if not relocated_root:

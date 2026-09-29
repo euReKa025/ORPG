@@ -4,7 +4,7 @@ from collections.abc import Mapping, Sequence
 from statistics import fmean
 from typing import Any
 
-from cw_grpo.stage_a_eval_metrics import (
+from orpg.stage_a_eval_metrics import (
     BudgetPoint,
     accuracy_length_hypervolume,
     pareto_front,

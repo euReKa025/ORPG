@@ -15,7 +15,7 @@ from transformers.utils.generic import ModelOutput
 
 @dataclass
 class ScoreModelOutput(ModelOutput):
-    """Subset of the Align-Anything score-model output used by CW-GRPO."""
+    """Subset of the Align-Anything score-model output used by ORPG."""
 
     scores: torch.FloatTensor | None = None
     end_scores: torch.FloatTensor | None = None

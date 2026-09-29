@@ -1,6 +1,6 @@
 import pytest
 
-from cw_grpo.stage_a_eval_metrics import (
+from orpg.stage_a_eval_metrics import (
     BudgetPoint,
     accuracy_length_hypervolume,
     pareto_front,

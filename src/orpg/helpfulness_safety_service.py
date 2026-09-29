@@ -53,7 +53,7 @@ class DualRewardScorer:
     ) -> DualRewardScorer:
         import torch
 
-        from cw_grpo.helpfulness_safety_scoring import (
+        from orpg.helpfulness_safety_scoring import (
             CWQwen2RewardModel,
             format_reward_conversation,
             load_reward_tokenizer,

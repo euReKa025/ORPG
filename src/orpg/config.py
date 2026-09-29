@@ -4,7 +4,7 @@ from typing import Literal
 
 @dataclass(frozen=True)
 class ObjectiveConfig:
-    objective: Literal["grpo", "gdpo", "cw_grpo"] = "grpo"
+    objective: Literal["grpo", "gdpo", "orpg"] = "grpo"
     clip_low: float = 0.2
     clip_high: float = 0.2
     eps: float = 1e-8

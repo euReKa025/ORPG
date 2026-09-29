@@ -14,10 +14,10 @@ from verl.utils.metric import AggregationType, Metric
 from verl.utils.tensordict_utils import maybe_fix_3d_position_ids
 from verl.workers.engine.fsdp.transformer_impl import FSDPEngineWithLMHead
 
-from cw_grpo.adapters.verl_objective_wise import (
+from orpg.adapters.verl_objective_wise import (
     OBJECTIVE_WISE_PROBE_VARIANT_NAMES,
 )
-from cw_grpo.gradient_reconciliation import (
+from orpg.gradient_reconciliation import (
     GradientCollection,
     ReconciliationDiagnostics,
     cagrad_reconcile,
@@ -26,7 +26,7 @@ from cw_grpo.gradient_reconciliation import (
     pcgrad_reconcile,
     sum_gradients,
 )
-from cw_grpo.positive_gradient_reconciliation import positive_pcgrad_reconcile
+from orpg.positive_gradient_reconciliation import positive_pcgrad_reconcile
 
 
 @dataclass(frozen=True, slots=True)

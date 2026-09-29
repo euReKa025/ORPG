@@ -2,7 +2,7 @@ import json
 
 import pyarrow.parquet as pq
 
-from cw_grpo.math_stage_a_eval_data import (
+from orpg.math_stage_a_eval_data import (
     BenchmarkSource,
     prepare_benchmark_records,
     write_benchmark_artifacts,

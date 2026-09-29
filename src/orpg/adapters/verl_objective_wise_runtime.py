@@ -20,8 +20,8 @@ from verl.trainer.ppo.utils import need_reference_policy
 from verl.workers.engine_workers import ActorRolloutRefWorker
 from verl.workers.utils.losses import ppo_loss
 
-from cw_grpo.adapters.verl_objective_wise import install_objective_wise_overlay
-from cw_grpo.adapters.verl_objective_wise_engine import (
+from orpg.adapters.verl_objective_wise import install_objective_wise_overlay
+from orpg.adapters.verl_objective_wise_engine import (
     ObjectiveWiseEngineSettings,
     ObjectiveWiseFSDPEngineWithLMHead,
 )
@@ -36,7 +36,7 @@ _OBJECTIVE_WISE_POLICY_KEYS = (
     "objective_wise_positive_q",
     "objective_wise_positive_preserve_norm",
 )
-_OBJECTIVE_WISE_TRANSPORT_KEY = "_cw_grpo_objective_wise"
+_OBJECTIVE_WISE_TRANSPORT_KEY = "_orpg_objective_wise"
 
 
 def make_policy_only_actor_config(actor_config: Any) -> Any:
@@ -290,7 +290,7 @@ class ObjectiveWiseRayPPOTrainer(RayPPOTrainer):
     """Capture a fixed pre-update batch before the probe reaches actor workers."""
 
     def fit(self):
-        from cw_grpo.exploration_budget import exploration_stop_at_step
+        from orpg.exploration_budget import exploration_stop_at_step
 
         # TaskRunner has already initialized workers with the unchanged 100-step
         # config. Pinned Verl uses this driver field only for progress/last-step
@@ -308,7 +308,7 @@ class ObjectiveWiseRayPPOTrainer(RayPPOTrainer):
             del self._exploration_stop
 
     def _load_checkpoint(self):
-        from cw_grpo.exploration_budget import validate_exploration_resume_step
+        from orpg.exploration_budget import validate_exploration_resume_step
 
         result = super()._load_checkpoint()
         validate_exploration_resume_step(

@@ -7,7 +7,7 @@ from typing import Any
 from verl import DataProto
 from verl.experimental.reward_loop.reward_manager.base import RewardManagerBase
 
-from cw_grpo.math_stage_a_reward import DEFAULT_LENGTH_THRESHOLD, score_stage_a_response
+from orpg.math_stage_a_reward import DEFAULT_LENGTH_THRESHOLD, score_stage_a_response
 
 
 class MathStageARewardManager(RewardManagerBase):

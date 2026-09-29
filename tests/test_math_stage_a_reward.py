@@ -1,8 +1,8 @@
 import sys
 from concurrent.futures import ThreadPoolExecutor
 
-import cw_grpo.math_stage_a_reward as reward_module
-from cw_grpo.math_stage_a_reward import score_stage_a_response
+import orpg.math_stage_a_reward as reward_module
+from orpg.math_stage_a_reward import score_stage_a_response
 
 
 def test_score_stage_a_response_combines_correctness_and_binary_length() -> None:

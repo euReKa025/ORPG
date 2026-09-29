@@ -9,7 +9,7 @@ from verl.experimental.reward_loop.reward_loop import (
 )
 from verl.trainer.main_ppo import TaskRunner
 
-from cw_grpo.adapters.verl_objective_wise_runtime import ObjectiveWiseTaskRunner
+from orpg.adapters.verl_objective_wise_runtime import ObjectiveWiseTaskRunner
 
 
 def _actor_name(experiment_name: str, index: int) -> str:
@@ -76,7 +76,7 @@ class HelpfulnessSafetyTaskRunner(TaskRunner):
 
 class HelpfulnessSafetyGD2POTaskRunner(TaskRunner):
     def run(self, config):
-        from cw_grpo.adapters.verl_gd2po import install_gd2po_hard_overlay
+        from orpg.adapters.verl_gd2po import install_gd2po_hard_overlay
 
         install_helpfulness_safety_reward_loop()
         install_gd2po_hard_overlay()

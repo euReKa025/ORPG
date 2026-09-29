@@ -11,7 +11,7 @@ from verl.trainer.ppo.core_algos import (
     compute_grpo_outcome_advantage,
 )
 
-from cw_grpo.adapters.verl_gd2po import _component_reward_tensors, _query_keep_ratio
+from orpg.adapters.verl_gd2po import _component_reward_tensors, _query_keep_ratio
 
 _ROLLOUT_ADVANTAGES_KEY = "objective_wise_rollout_advantages"
 _FILTER_CONFLICT_KEY = "objective_wise_filter_conflict_mask"
@@ -725,7 +725,7 @@ def install_objective_wise_overlay() -> None:
     current_metrics = ray_trainer.compute_data_metrics
     if current_estimator is compute_objective_wise_outcome_advantage and getattr(
         current_metrics,
-        "_cw_grpo_objective_wise",
+        "_orpg_objective_wise",
         False,
     ):
         return
@@ -743,7 +743,7 @@ def install_objective_wise_overlay() -> None:
         metrics.update(objective_wise_metrics(batch.non_tensor_batch))
         return metrics
 
-    compute_data_metrics_with_objective_wise._cw_grpo_objective_wise = True  # type: ignore[attr-defined]
+    compute_data_metrics_with_objective_wise._orpg_objective_wise = True  # type: ignore[attr-defined]
     core_algos.ADV_ESTIMATOR_REGISTRY["gdpo"] = (
         compute_objective_wise_outcome_advantage
     )

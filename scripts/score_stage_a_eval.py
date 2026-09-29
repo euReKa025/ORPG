@@ -11,8 +11,8 @@ from pathlib import Path
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from cw_grpo.stage_a_eval_scoring import score_generation_rows
-from cw_grpo.stage_a_grpo import REMOTE_PROJECT_ROOT
+from orpg.stage_a_eval_scoring import score_generation_rows
+from orpg.stage_a_grpo import REMOTE_PROJECT_ROOT
 
 PROJECT_ROOT = Path(str(REMOTE_PROJECT_ROOT)).resolve()
 
@@ -21,7 +21,7 @@ def _personal_path(raw_path: str | Path, *, label: str) -> Path:
     path = Path(raw_path).resolve()
     if path.is_relative_to(PROJECT_ROOT):
         return path
-    relocated_output_root = os.environ.get("CW_GRPO_RELOCATED_OUTPUT_ROOT")
+    relocated_output_root = os.environ.get("ORPG_RELOCATED_OUTPUT_ROOT")
     if relocated_output_root:
         allowed_root = Path(relocated_output_root).expanduser().resolve()
         if path.is_relative_to(allowed_root):
@@ -38,7 +38,7 @@ def _sha256(path: Path) -> str:
 
 
 def _record_sha256() -> bool:
-    return os.environ.get("CW_GRPO_RECORD_SHA256", "0").lower() not in {
+    return os.environ.get("ORPG_RECORD_SHA256", "0").lower() not in {
         "0",
         "false",
         "no",
